@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .action-icons {
+            display: flex;
+            gap: 5px;
+        }
+        .action-icons span {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>User Management</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email Addres</th>
+                <!-- <th>Status</th> -->
+                <th>Date Joined</th>
+                <!-- <th>Action</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.first_name }} {{ user.last_name }}</td>
+                <td>{{ user.email_address }}</td>
+                <!-- <td>{{ user.satus }}</td> -->
+
+                <!-- <td>
+                    {% if user.status == "Online" %}
+                        <span style="color: green;">● {{ user.status }}</span>
+                    {% elif user.status == "Offline" %}
+                        <span style="color: red;">● {{ user.status }}</span>
+                    {% else %}
+                        <span style="color: orange;">● {{ user.status }}</span>
+                    {% endif %}
+                </td> -->
+                <td>{{ user.date_joined }}</td>
+                <!-- <td class="action-icons">
+                    <span style="color: blue;">⚙</span>
+                    <span style="color: green;">✔</span>
+                    <span style="color: red;">✖</span>
+                </td> -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
